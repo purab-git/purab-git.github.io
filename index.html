@@ -6,46 +6,116 @@
     <title>Purab Pandurang Raut - Professional Profile</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('https://example.com/linux-background.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
+            background: linear-gradient(120deg, #f4f4f4, #e1e4e8, #f4f4f4, #e1e4e8);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+            color: #333;
+            transition: background-color 0.5s;
+        }
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         header {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: #24292e;
             color: white;
             padding: 1em 0;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.5s;
         }
         nav {
             display: flex;
             justify-content: center;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: #0366d6;
+            position: sticky;
+            top: 60px;
+            z-index: 1000;
+            transition: background-color 0.5s;
         }
         nav a {
             color: white;
             padding: 14px 20px;
             text-decoration: none;
             text-align: center;
+            transition: background-color 0.3s, color 0.3s;
         }
         nav a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #0056b3;
+            color: #fff;
         }
         main {
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 1s;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .skill {
+            background-color: #e1e4e8;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            width: 45%;
+            animation: fadeIn 2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+        .skill:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         footer {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: #24292e;
             color: white;
             text-align: center;
             padding: 10px 0;
             position: fixed;
             width: 100%;
             bottom: 0;
+            transition: background-color 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .dark-mode {
+            background-color: #333;
+            color: white;
+        }
+        .dark-mode header, .dark-mode nav, .dark-mode footer {
+            background-color: #1b1b1b;
+        }
+        .dark-mode .skill {
+            background-color: #444;
+        }
+        .toggle-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #0366d6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .toggle-button:hover {
+            background-color: #0056b3;
+        }
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -61,54 +131,38 @@
         <a href="#contact">Contact</a>
     </nav>
     <main>
-        <section id="about">
+        <section id="about" class="section">
             <h2>About Me</h2>
             <p>Experienced IT professional with a strong background in Red Hat technologies, virtualization, and cloud computing.</p>
         </section>
-        <section id="skills">
+        <section id="skills" class="section">
             <h2>Skill Set</h2>
-            <ul>
-                <li>REDHAT 6 & 7 RHCSA and RHCE, REDHAT Virtualization, RHOCP 4.6, Red Hat OpenShift Development (ID: 130-229-693), CKA certified</li>
-                <li>Worked on EKS POC</li>
-                <li>Linux distributions: RHEL 6, CentOS, Fedora, Ubuntu</li>
-                <li>HYPER-V, VMWARE Virtualization PowerCLI</li>
-                <li>Knowledge of OpenStack, RedHat Satellite, Ansible, Jenkins, Docker, OpenStack</li>
-                <li>Automate the Virtual Machine Creation using PowerCLI</li>
-                <li>Azure Fundamental certified, Basic knowledge of AWS, GCP cloud</li>
-                <li>Deployment of LAMP server application on container</li>
-                <li>Linux Server: FTP, HTTP (Apache), NFS, SMTP, SAMBA, DHCP, DNS, Red Hat Cluster</li>
-            </ul>
+            <div class="skills">
+                <div class="skill">REDHAT 6 & 7 RHCSA and RHCE, REDHAT Virtualization, RHOCP 4.6, Red Hat OpenShift Development (ID: 130-229-693), CKA certified</div>
+                <div class="skill">Worked on EKS POC</div>
+                <div class="skill">Linux distributions: RHEL 6, CentOS, Fedora, Ubuntu</div>
+                <div class="skill">HYPER-V, VMWARE Virtualization PowerCLI</div>
+                <div class="skill">Knowledge of OpenStack, RedHat Satellite, Ansible, Jenkins, Docker, OpenStack</div>
+                <div class="skill">Automate the Virtual Machine Creation using PowerCLI</div>
+                <div class="skill">Azure Fundamental certified, Basic knowledge of AWS, GCP cloud</div>
+                <div class="skill">Deployment of LAMP server application on container</div>
+                <div class="skill">Linux Server: FTP, HTTP (Apache), NFS, SMTP, SAMBA, DHCP, DNS, Red Hat Cluster</div>
+            </div>
+        </section>
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <p>Email: purab.raut@gmail.com</p>
+            <p>Phone: +91-9762158559</p>
         </section>
     </main>
     <footer>
         <p>&copy; 2025 Purab Pandurang Raut</p>
     </footer>
+    <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <script>
-        const images = [
-            'https://example.com/linux-background-morning.jpg',
-            'https://example.com/linux-background-afternoon.jpg',
-            'https://example.com/linux-background-evening.jpg',
-            'https://example.com/linux-background-night.jpg'
-        ];
-
-        function setDynamicBackground() {
-            const hour = new Date().getHours();
-            let imageUrl;
-
-            if (hour >= 6 && hour < 12) {
-                imageUrl = images[0]; // Morning
-            } else if (hour >= 12 && hour < 18) {
-                imageUrl = images[1]; // Afternoon
-            } else if (hour >= 18 && hour < 24) {
-                imageUrl = images[2]; // Evening
-            } else {
-                imageUrl = images[3]; // Night
-            }
-
-            document.body.style.backgroundImage = `url('${imageUrl}')`;
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
         }
-
-        window.onload = setDynamicBackground;
     </script>
 </body>
 </html>
