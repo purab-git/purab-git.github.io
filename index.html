@@ -9,10 +9,12 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: url('https://example.com/linux-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
         }
         header {
-            background-color: #4CAF50;
+            background-color: rgba(0, 0, 0, 0.7);
             color: white;
             padding: 1em 0;
             text-align: center;
@@ -20,7 +22,7 @@
         nav {
             display: flex;
             justify-content: center;
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.8);
         }
         nav a {
             color: white;
@@ -30,13 +32,14 @@
         }
         nav a:hover {
             background-color: #ddd;
-            black;
+            color: black;
         }
         main {
             padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
         }
         footer {
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
             text-align: center;
             padding: 10px 0;
@@ -80,5 +83,32 @@
     <footer>
         <p>&copy; 2025 Purab Pandurang Raut</p>
     </footer>
+    <script>
+        const images = [
+            'https://example.com/linux-background-morning.jpg',
+            'https://example.com/linux-background-afternoon.jpg',
+            'https://example.com/linux-background-evening.jpg',
+            'https://example.com/linux-background-night.jpg'
+        ];
+
+        function setDynamicBackground() {
+            const hour = new Date().getHours();
+            let imageUrl;
+
+            if (hour >= 6 && hour < 12) {
+                imageUrl = images[0]; // Morning
+            } else if (hour >= 12 && hour < 18) {
+                imageUrl = images[1]; // Afternoon
+            } else if (hour >= 18 && hour < 24) {
+                imageUrl = images[2]; // Evening
+            } else {
+                imageUrl = images[3]; // Night
+            }
+
+            document.body.style.backgroundImage = `url('${imageUrl}')`;
+        }
+
+        window.onload = setDynamicBackground;
+    </script>
 </body>
 </html>
